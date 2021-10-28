@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Entregable 3</title>
+  </head>
+  <body onkeypress="moveCharacter()">
+
+    <header>
+      <div class="timer" onanimationend="deleteCharacter()">
+        <span></span>    
+      </div>
+     
+      <div class="links">
+        <div class="sum">SCORE:<span id="score">  0</span></div>
+      </div>
+      <div>
+        <button class="btnAvatar" id="avatar1">Avatar Azul</button>
+      <button class="btnAvatar" id="avatar2">Avatar Rojo</button>
+      </div>
+      
+    </header>
+
+     <div id="body"> 
+     
+      <div class="gameover" id="gameover">TIME OUT</div>
+       
+    </div>
+
+    <script src="/js/Element.js"></script>
+    <script src="/js/bonus.js"></script>
+    <script src="/js/obstacle.js"></script>
+    <script src="/js/Character.js"></script>
+    <script src="/js/Game.js"></script>
+
+    <footer>
+      <div class="links">
+        <h4>Usa W y S para esquibar las esferas de luz y en un minuto trata de tomar todas las monedas que puedas</h3>
+        <h3>Copyright (c) 2021 | Juegos Online</h3>
+      </div>
+    </footer>
+  </body>
+</html>

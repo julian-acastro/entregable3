@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+header{
+  position: relative;
+  background-image: linear-gradient( 90deg , rgb(181, 54, 128) 100px, rgb(81, 27, 111));
+  border-bottom: 4px solid rgb(48, 186, 153) ;
+  padding-right:40px;
+  padding-left:40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 70px;
+}
+.btnAvatar{
+  background-color: rgb(48, 186, 153);
+  border: 1px solid black;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+footer{
+    position: relative;
+    background-image: linear-gradient( 90deg , rgb(181, 54, 128) 100px, rgb(81, 27, 111));
+    border-top: 4px solid rgb(48, 186, 153) ;
+    padding-right:40px;
+    padding-left:40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 70px; 
+}
+.links{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width:350px;
+color: white;
+}
+.links a{
+  text-decoration: none;
+  color: rgb(212, 212, 212);
+}
+.links a:hover{
+  text-shadow: 0px 0px 6px rgb(255, 255, 255);
+  color: white;
+}
+
+/************************************************************************************************************/
+/* FONDO */
+
+.containsGame{
+  width: 100vw;
+  height: 600px;
+ 
+}
+
+.space {
+  background: url("../sources/space.png");
+  background-size: contain;
+  animation: moveSpace 30s linear infinite;
+}
+.planets {
+  background: url("../sources/planet.png");
+  background-size: contain;
+  animation: moveSpace 20s linear infinite;
+}
+.stars {
+  background: url("../sources/stars.png");
+  background-size: contain;
+  animation: moveSpace 10s linear infinite;
+}
+
+@keyframes moveSpace {
+  0% {
+    background-position: 550px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+.sum{
+position:fixed; 
+left:45%; 
+top:20px; 
+font-size:24px; 
+font-weight:bold; 
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+}
+.timer{
+  background-color:grey; width:300px;height:50px;
+  position:fixed;
+}
+.timer span{
+  display:block;
+  background:repeating-linear-gradient(-45deg, 
+  #000 5px,
+  #000 11px,
+  #ffff00 11px,
+  #ffff00 19px);/*crea una imagen que consta de gradientes lineales repetidos*/
+  width:300px; height:50px;
+  animation:timer 60s linear;
+}
+
+.timer span:before{  /* usado para añadir contenido estético a un elemento, usando la propiedad content*/
+  content:"TIME LEFT";
+  display:block;
+  position:absolute;
+  left:0; 
+  right:0;
+  top:0;
+  bottom:0;
+  text-align:center;
+  line-height:50px;
+  font-size:25px;
+  color:white;
+  font-weight:bold;
+  
+}
+@keyframes timer{
+0%{width:10px;}
+100%{width:300px; display:block;}
+}
+
+.gameover{
+  position:fixed; z-index:100000; left:0; top:0; bottom:0; right:0; background-color:rgba(0,0,0,0.8);
+  animation:gameover 60s linear forwards;
+  font-size:80px; color:white; font-weight:bold; text-align:center; 
+  text-indent:0;  
+  line-height:500px;
+}
+
+@keyframes gameover{
+0%{left:-5000px;bottom:100%;}
+97%{left:-5000px;bottom:100%;}
+100%{ left:0px;}
+}
+
+/***************************************************************************************************************/
+/*OBSTACULOS Y MONEDAS*/
+
+ .blackhole {
+   width:150px;
+   height:151px;
+   margin:auto;  
+   background:url('../sources/bomb.png'); 
+   animation: displace 8s steps(8) ;
+   position: absolute;
+ }
+
+ .blackhole2 {
+  width:150px;
+  height:151px;
+  margin:auto;  
+  background:url('../sources/bomb2.png'); 
+  animation: displace 8s steps(8) ;
+  position: absolute;
+}
+ @keyframes displace{
+  0%{right: -10% }
+  10%{right: 10% }
+  20%{right: 20% }
+  30%{right: 30% }
+  40%{right: 40% }
+  50%{right: 50% }
+  60%{right: 60% }
+  70%{right: 70% }
+  80%{right: 80% }
+  90%{right: 90% }
+  100%{right: 100%;background-position: -1200px; display: hidden;}
+
+  /* 0% {background-position: 0;
+    right: -10vw;} 
+
+  100% {background-position: -1200px;
+    right: 110vw;
+    display: hidden; }  */
+ } 
+ 
+.money {
+  width:150px;
+  height:151px;
+  margin:auto;  
+  transition-property: transform .5s linear;
+  background:url('../sources/money.png');
+  animation:float 8s steps(8);
+  position: absolute;
+  right: 200px;
+}
+@keyframes float {
+
+  0%{right: -10% }
+  10%{right: 10% }
+  20%{right: 20% }
+  30%{right: 30% }
+  40%{right: 40% }
+  50%{right: 50% }
+  60%{right: 60% }
+  70%{right: 70% }
+  80%{right: 80% }
+  90%{right: 90% }
+  100%{right: 100%;background-position: -1200px; display: hidden;}
+
+
+ /* 0% {background-position: 0px; right: -10vw;
+  } 
+ 100% {background-position: -1200px;right: 110vw;
+  display: hidden;
+  }  */
+}
+.pos1{
+  transform: translateY(-10%) rotate(-360deg);
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+ 
+}
+.pos2{
+  transform: translateY(150%);
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+}
+.pos3{
+  transform: translateY(300%) rotate(360deg);
+  transition-property: transform;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+}
+.elementPos1{
+  top: 110px;
+}
+.elementPos2{
+  top: 310px;
+}
+.elementPos3{
+  top: 500px;
+}
+/***************************************************************************************************/
+/*PERSONAJES Y COLLISION*/
+
+.character {
+  width:132.25px;
+  height:147px;
+  background-image: url("../sources/amoun.png");
+  animation: fly 0.8s steps(4) infinite;
+  left: 200px;
+  position: absolute;
+}
+.character2 {
+  width:132.25px;
+  height:147px;
+  background-image: url("../sources/amoun2.png");
+  animation: fly 0.8s steps(4) infinite;
+  left: 200px;
+  position: absolute;
+}
+@keyframes fly {
+  0% { background-position: 0px }
+  100% { background-position: -529px }
+}
+.characterMoney {
+  width:132.25px;
+  height:147px;
+  background-image: url("../sources/getMoney.png");
+  animation: getMoney 0.5s steps(4) infinite;
+  left: 200px;
+  position: absolute;
+}
+.character2Money {
+  width:132.25px;
+  height:147px;
+  background-image: url("../sources/getMoney2.png");
+  animation: getMoney 0.5s steps(4) infinite;
+  left: 200px;
+  position: absolute;
+}
+@keyframes getMoney {
+  0% { background-position: 0px }
+  100% { background-position: -529px }
+}
+.collision {
+  width:132.4px;
+  height:129px;
+  margin:auto;  
+  background:url('../sources/collision.png'); 
+  animation:collision .7s steps(5) infinite;
+  left: 200px;
+  position: absolute; 
+}
+@keyframes collision {
+ 0% {background-position: 0;} 
+
+ 100% {background-position: -662px;
+   display: hidden; } 
+} 
+.hidden{
+  display:hidden;
+}
+
+
+
+
