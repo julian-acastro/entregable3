@@ -108,6 +108,7 @@ function createContainsGame(elemName) {
   return elem;
 }
 
+//al finalizar la animacion se llama esta funcionq elimina el elemento HTML
 function removeMe(id) {
   for (let i = 0; i < elements.length; i++) {
     if (elements[i].name == id) {

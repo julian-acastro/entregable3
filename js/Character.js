@@ -4,7 +4,7 @@ class Character {
         this.name = "character";
     }
 
-
+//se agrega a si mismo al DOM dependiendo de los aprametros recibidos
     addMe() {
 
         let obs = document.createElement("div");
@@ -33,6 +33,7 @@ class Character {
         let containGame = document.getElementById("stars");
         containGame.appendChild(obs);
     }
+    //metodo q recibe un parametro y realiza un movimiento a partir de este
     move(key) {
         let character = document.getElementById("character");
         switch (key) {
@@ -57,17 +58,19 @@ class Character {
                 break;
         }
     }
+    //devuelve un objeto con sus pocicion actual
     getPos() {
         let me = document.getElementById(this.name);
         let posMe = me.getBoundingClientRect();
         return posMe;
     }
-
+//se elimina as i mismo del DOM
     deleteMe(){
         let me=document.getElementById("character");
         let parent=me.parentNode;
         parent.removeChild(me);
     }
+    //metodo q otorga animaciones a partir de einteraccion con otros elementos
     takeMoney(){
         let me=document.getElementById("character");
         if(me.classList.contains("character")){
@@ -80,19 +83,7 @@ class Character {
             setTimeout(this.remplaceClass,500,"character2Money","character2");
         }
     }
-    takeMoney(){
-        let me=document.getElementById("character");
-        if(me.classList.contains("character")){
-            me.classList.remove("character");
-            me.classList.add("characterMoney");
-            setTimeout(this.remplaceClass,500,"characterMoney","character");
-        }else {
-            me.classList.remove("character2");
-            me.classList.add("character2Money");
-            setTimeout(this.remplaceClass,500,"character2Money","character2");
-        }
-    }
-
+    //metodo q otorga animaciones a partir de einteraccion con otros elementos
     collision(){
         let me=document.getElementById("character");
         if(me.classList.contains("character")){
@@ -105,7 +96,7 @@ class Character {
             setTimeout(this.remplaceClass,500,"collision","character2");
         }
     }
-
+    
     remplaceClass(ab,aa){
         let me=document.getElementById("character");
         me.classList.remove(ab);

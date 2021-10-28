@@ -4,6 +4,7 @@ class Obstacle extends Element{
     constructor(pos,tipe,name){
         super(pos,tipe,name);
     }
+    //se agrega a si mismo al DOM dependiendo de los aprametros recibidos
     addMe(){
         let bHclass;
         let obs=document.createElement("div");
@@ -20,11 +21,13 @@ class Obstacle extends Element{
         containGame.appendChild(obs);
 
     }
+    //devuelve un objeto con sus pocicion actual
     getPos(){
         let me=document.getElementById(this.name);
         let posMe=me.getBoundingClientRect();
         return posMe;
     }
+    //se elimina as i mismo del DOM
     deleteMe(){
         
         let me= document.getElementById(this.name);
@@ -32,12 +35,14 @@ class Obstacle extends Element{
         let parent = me.parentNode;
 		parent.removeChild(me);
     }
+    //este motodo saca 10 puntos al marcador de puntaje
     onCollicion(){
         let scoreBox=document.getElementById("score");
         let score=parseInt(scoreBox.innerHTML)
         scoreBox.innerHTML= score - 10;
         
     }
+    //responde si es un bonus o no
     iAmABonus(){
         return false;
     }
